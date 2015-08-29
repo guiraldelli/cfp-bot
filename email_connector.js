@@ -28,12 +28,12 @@ function get_message_text(gmail_message){
     return gmail_message.getPlainBody();
 }
 
+// returns the subject text of a GMail message
+function get_subject_text(gmail_message){
+    return gmail_message.getSubject();
+}
+
 // main function, which returns the plain text body of all unread GMail messages
 function get_body_all_unread_messages(){
     return get_unread_messages(get_unread_threads()).map(get_message_text);
-}
-
-// debug function
-function debug(){
-    Logger.log("Unread messages:\n%s", get_body_all_unread_messages());
 }
