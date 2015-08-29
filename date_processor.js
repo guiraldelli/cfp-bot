@@ -3,6 +3,12 @@ var REGEX_DATE = /((\d{1,2}/\d{1,2}/(\d{4}|\d{2}))|(\d{4}-\d{2}-\d{2})|(\d{1,2}(
 // ISO format for dates
 var DATE_ISO_FORMAT = "yyyy-MM-dd";
 
+// given a date represented as string, returns the date as a Date Javascript
+// object using the Datejs library
+function get_date(string_date){
+    Date.parse(string_date);
+}
+
 // gets a mathced date from regex and converts to a string in the ISO format
 // using the Datejs library
 function get_iso_date(matched_date){

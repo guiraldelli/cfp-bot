@@ -21,8 +21,12 @@ function process_email(gmail_message){
     var lines_body = break_lines(get_message_text(gmail_message));
     for (line in lines_body){
         if (has_date(line) && is_paper_deadline(line)){
-            var iso_date = get_iso_date(get_literal_date(line));
-            // TODO: create Google Calendar entry
+            var date = get_date(get_literal_date(line));
+            var calendar_event = create_event(subject, date);
+            if (calendar_event == null){
+                Logger.log("It was not possible to create an event with the following details:\n\tSubject: %s\n\tDate: %s", subject, date);
+            }
+            break;
         }
     }
 }
