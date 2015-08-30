@@ -25,6 +25,10 @@ function process_email(gmail_message){
             var calendar_event = create_event(subject, date);
             if (calendar_event == null){
                 Logger.log("It was not possible to create an event with the following details:\n\tSubject: %s\n\tDate: %s", subject, date);
+                gmail_message.star();
+            }
+            else{
+                gmail_message.markRead();
             }
             break;
         }
