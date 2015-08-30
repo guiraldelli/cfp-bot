@@ -15,9 +15,15 @@ function get_iso_date(matched_date){
     Date.parse(matched_date).toString(DATE_ISO_FORMAT);
 }
 
-// returns the matched date found in the line
+// returns the matched date found in the line, otherwise null
 function get_literal_date(line){
-    return line.match(REGEX_DATE);
+    var match = line.match(REGEX_DATE);
+    if (match.length > 0){
+        return match[0];
+    }
+    else{
+        return null;
+    }
 }
 
 // verifies if a line contains a date
