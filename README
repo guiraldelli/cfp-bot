@@ -1,5 +1,0 @@
-cfp-bot is a app that process "Call For Papers" e-mails and automatically add the submition deadline dates to Google Calendar.
-
-This app uses some third-party libraries, as:
-    - parsedatetime [ http://code.google.com/p/parsedatetime/ ]
-    - Google Data APIs [ http://code.google.com/p/gdata-python-client/downloads/list ]
