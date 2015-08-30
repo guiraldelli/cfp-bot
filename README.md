@@ -10,8 +10,13 @@ improvements on the existing code.
 
 ## License
 So far, it is still licensed under
-[BSD 3-Clause](https://www.tldrlegal.com/l/bsd3). Maybe, someday, it will be
+[MIT License](https://www.tldrlegal.com/l/mit). Maybe, someday, it will be
 even more open.
+
+## Acknowledgments
+We make use of [Datejs](http://www.datejs.com/) library for parsing of the
+several human ways of writing dates. The library is licensed under
+the [MIT License](https://www.tldrlegal.com/l/mit).
 
 ## The Old Version
 This repository is originally "the house" of the old version written in Python.
