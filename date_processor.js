@@ -6,16 +6,16 @@ var DATE_ISO_FORMAT = "yyyy-MM-dd";
 // given a date represented as string, returns the date as a Date Javascript
 // object using the Datejs library
 function get_date(string_date){
-    Date.parse(string_date);
+    return Date.parse(string_date);
 }
 
 // gets a mathced date from regex and converts to a string in the ISO format
 // using the Datejs library
 function get_iso_date(matched_date){
-    Date.parse(matched_date).toString(DATE_ISO_FORMAT);
+    return Date.parse(matched_date).toString(DATE_ISO_FORMAT);
 }
 
-// returns the matched date found in the line, otherwise null
+// returns the matched date found in the line
 function get_literal_date(line){
     var match = line.match(REGEX_DATE);
     if (match.length > 0){
