@@ -2,6 +2,9 @@
 var REGEX_KEY_LINE = /((call\s+for\s+(paper|papers))|submission|deadline)/i; //ignore case
 // regex for the line which contains paper submission deadline information
 var REGEX_PAPER_DEADLINE = /(paper(s)?)*(submission|deadline)(paper(s)?)*/i;
+// regex pattern of forward text in subject of emails
+var REGEX_FORWARD = /^\s*(fw(d)?|en(c)?):\s*/i;
+
 
 // verifies if a line contains the information of a call for paper email,
 // returning a true value in positive case
@@ -15,9 +18,14 @@ function is_paper_deadline(line){
     return REGEX_PAPER_DEADLINE.test(line);
 }
 
+// removes forward text in subject
+function remove_forward(subject_text){
+    return subject_text.replace(REGEX_FORWARD, EMPTY_STRING);
+}
+
 // takes a GmailMessage object and process it, extracting
 function process_email(gmail_message){
-    var subject = get_subject_text(gmail_message);
+    var subject = remove_forward(get_subject_text(gmail_message));
     var lines_of_interest = break_lines(get_message_text(gmail_message)).filter(has_date).filter(is_paper_deadline);
     // process only one entry of lines of interest
     if (lines_of_interest.length > 0){
