@@ -37,6 +37,7 @@ function process_email(gmail_message){
         }
         else{
             gmail_message.markRead();
+            gmail_message.getThread().moveToArchive();
         }
     }
 }
